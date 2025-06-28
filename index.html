@@ -1,0 +1,161 @@
+<html>
+<head>
+    <title>Anything II</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+</head>
+<body>
+    <div id="particles-js"></div>
+    <div class="container">
+        <h1 id="mainTitle"></h1>
+        <h2 id="subTitle"></h2>
+        <button id="transitionButton" class="action-button">LETS OPEN THE COMPUTER PROGRAM GUYS!!!</button>
+    </div>
+    <div class="login-container">
+        <div class="profile-icon">👤</div>
+        <div class="input-group">
+            <input type="text" id="username" readonly placeholder="Username">
+        </div>
+        <div class="input-group">
+            <input type="password" id="password" placeholder="Password">
+            <button id="loginButton" class="login-button">➜</button>
+        </div>
+    </div>
+    <div class="desktop-interface">
+        <div class="desktop-area">
+            <div class="desktop-icon" data-app="file-manager">
+                <div class="icon">📁</div>
+                <div class="label">Files</div>
+            </div>
+            <div class="desktop-icon" data-app="terminal">
+                <div class="icon">⬛</div>
+                <div class="label">Terminal</div>
+            </div>
+            <div class="desktop-icon" data-app="browser">
+                <div class="icon">🌐</div>
+                <div class="label">Web Browser</div>
+            </div>
+            <div class="desktop-icon" data-app="settings">
+                <div class="icon">⚙️</div>
+                <div class="label">Settings</div>
+            </div>
+        </div>
+        
+        <div class="taskbar">
+            <div class="start-menu-button">
+                <div class="menu-icon">🍃</div>
+                <span>Menu</span>
+            </div>
+            <div class="taskbar-center">
+                <div class="open-apps"></div>
+            </div>
+            <div class="taskbar-right">
+                <div class="system-tray">
+                    <span class="wifi-icon">📶</span>
+                    <span class="volume-icon">🔊</span>
+                    <span class="battery-icon">🔋</span>
+                    <span class="clock" id="clock">12:00 PM</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="start-menu">
+            <div class="menu-header">
+                <div class="user-info">
+                    <div class="user-avatar">👤</div>
+                    <div class="user-name" id="menuUsername">User</div>
+                </div>
+            </div>
+            <div class="menu-content">
+                <div class="menu-section">
+                    <div class="section-title">Applications</div>
+                    <div class="menu-item">📁 File Manager</div>
+                    <div class="menu-item">⬛ Terminal</div>
+                    <div class="menu-item">🌐 Web Browser</div>
+                    <div class="menu-item">📝 Text Editor</div>
+                    <div class="menu-item">🎵 Music Player</div>
+                </div>
+                <div class="menu-section">
+                    <div class="section-title">System</div>
+                    <div class="menu-item">⚙️ Settings</div>
+                    <div class="menu-item">🔒 Lock Screen</div>
+                    <div class="menu-item">🔄 Restart</div>
+                    <div class="menu-item">⚡ Shutdown</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Update settings window structure -->
+    <div class="settings-window" style="display: none;">
+        <div class="window-header">
+            <div class="window-title">⚙️ Settings</div>
+            <button class="close-button">×</button>
+        </div>
+        <div class="window-content">
+            <div class="window-sidebar">
+                <div class="sidebar-item active" data-section="appearance">
+                    <span class="sidebar-icon">🎨</span>
+                    Appearance
+                </div>
+                <div class="sidebar-item" data-section="sound">
+                    <span class="sidebar-icon">🔊</span>
+                    Sound
+                </div>
+                <div class="sidebar-item" data-section="about">
+                    <span class="sidebar-icon">ℹ️</span>
+                    About
+                </div>
+            </div>
+            <div class="settings-content">
+                <div class="settings-section" id="appearance-section">
+                    <h2>Appearance Settings</h2>
+                    <div class="setting-item">
+                        <label>Theme:</label>
+                        <select id="theme-selector">
+                            <option value="dark">Dark</option>
+                            <option value="light">Light</option>
+                        </select>
+                    </div>
+                    <div class="setting-item">
+                        <label>Accent Color:</label>
+                        <div class="color-options">
+                            <div class="color-option" data-color="#007AFF" style="background-color: #007AFF"></div>
+                            <div class="color-option" data-color="#FF3B30" style="background-color: #FF3B30"></div>
+                            <div class="color-option" data-color="#4CD964" style="background-color: #4CD964"></div>
+                            <div class="color-option" data-color="#FFCC00" style="background-color: #FFCC00"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="settings-section" id="sound-section" style="display: none;">
+                    <h2>Sound Settings</h2>
+                    <div class="setting-item">
+                        <label>System Volume:</label>
+                        <input type="range" id="volume-slider" min="0" max="100" value="50">
+                        <span id="volume-value">50%</span>
+                    </div>
+                    <div class="setting-item">
+                        <label>Sound Effects:</label>
+                        <label class="switch">
+                            <input type="checkbox" id="sound-effects-toggle" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="settings-section" id="about-section" style="display: none;">
+                    <h2>About System</h2>
+                    <div class="about-info">
+                        <p><strong>System Name:</strong> Anything II</p>
+                        <p><strong>Version:</strong> 1.0.0</p>
+                        <p><strong>Build:</strong> 2024.01</p>
+                        <p><strong>Memory:</strong> 16GB RAM</p>
+                        <p><strong>Storage:</strong> 512GB</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
