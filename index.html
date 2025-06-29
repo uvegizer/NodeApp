@@ -1,65 +1,78 @@
-<html>
+<!DOCTYPE html>
+<html lang="es">
 <head>
-    <title>Anything II</title>
+    <meta charset="UTF-8">
+    <title>Node OS™ Desktop UI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 </head>
 <body>
     <div id="particles-js"></div>
-    <div class="container">
+
+    <!-- Pantalla de bienvenida -->
+    <section class="boot-screen" aria-label="Pantalla de bienvenida">
         <h1 id="mainTitle"></h1>
         <h2 id="subTitle"></h2>
-        <button id="transitionButton" class="action-button">LETS OPEN THE COMPUTER PROGRAM GUYS!!!</button>
-    </div>
-    <div class="login-container">
+        <button id="transitionButton" class="action-button">INICIAR NODE OS™</button>
+    </section>
+
+    <!-- Login -->
+    <section class="login-container" aria-label="Login">
         <div class="profile-icon">👤</div>
         <div class="input-group">
-            <input type="text" id="username" readonly placeholder="Username">
+            <input type="text" id="username" readonly placeholder="Usuario">
         </div>
         <div class="input-group">
-            <input type="password" id="password" placeholder="Password">
+            <input type="password" id="password" placeholder="Contraseña">
             <button id="loginButton" class="login-button">➜</button>
         </div>
-    </div>
+    </section>
+
+    <!-- Escritorio principal -->
     <div class="desktop-interface">
-        <div class="desktop-area">
-            <div class="desktop-icon" data-app="file-manager">
-                <div class="icon">📁</div>
-                <div class="label">Files</div>
-            </div>
-            <div class="desktop-icon" data-app="terminal">
-                <div class="icon">⬛</div>
-                <div class="label">Terminal</div>
-            </div>
-            <div class="desktop-icon" data-app="browser">
-                <div class="icon">🌐</div>
-                <div class="label">Web Browser</div>
-            </div>
-            <div class="desktop-icon" data-app="settings">
-                <div class="icon">⚙️</div>
-                <div class="label">Settings</div>
-            </div>
-        </div>
-        
-        <div class="taskbar">
-            <div class="start-menu-button">
-                <div class="menu-icon">🍃</div>
+        <!-- Barra superior -->
+        <header class="topbar">
+            <div class="logo neon-glow">Node OS™</div>
+            <div class="topbar-clock" id="topbar-clock">--:--</div>
+        </header>
+
+        <!-- Barra lateral -->
+        <nav class="sidebar" aria-label="Sidebar">
+            <button class="sidebar-btn" data-app="nodecore">🧬<span>NodeCore</span></button>
+            <button class="sidebar-btn" data-app="wallet">💳<span>Wallet</span></button>
+            <button class="sidebar-btn" data-app="nft">🖼️<span>NFT Hub</span></button>
+            <button class="sidebar-btn" data-app="terminal">⬛<span>Terminal</span></button>
+            <button class="sidebar-btn" data-app="labs">🧪<span>Labs</span></button>
+        </nav>
+
+        <!-- Área de escritorio y widgets -->
+        <main class="desktop-area" aria-label="Escritorio">
+            <section class="widget" id="widget-proyectos">📁 <h3>Proyectos</h3></section>
+            <section class="widget" id="widget-config">⚙️ <h3>Configuración</h3></section>
+            <section class="widget" id="widget-backups">💾 <h3>Backups</h3></section>
+            <section class="widget" id="widget-experimentos">🧪 <h3>Experimentos</h3></section>
+        </main>
+
+        <!-- Barra inferior tipo taskbar -->
+        <footer class="taskbar">
+            <button class="start-menu-button" aria-label="Abrir menú">
+                <span class="menu-icon">🍃</span>
                 <span>Menu</span>
-            </div>
+            </button>
             <div class="taskbar-center">
                 <div class="open-apps"></div>
             </div>
             <div class="taskbar-right">
-                <div class="system-tray">
-                    <span class="wifi-icon">📶</span>
-                    <span class="volume-icon">🔊</span>
-                    <span class="battery-icon">🔋</span>
-                    <span class="clock" id="clock">12:00 PM</span>
-                </div>
+                <span class="wifi-icon">📶</span>
+                <span class="volume-icon">🔊</span>
+                <span class="battery-icon">🔋</span>
+                <span class="clock" id="clock">--:--</span>
             </div>
-        </div>
-        
-        <div class="start-menu">
+        </footer>
+
+        <!-- Menú tipo Start -->
+        <nav class="start-menu" aria-label="Menú de inicio">
             <div class="menu-header">
                 <div class="user-info">
                     <div class="user-avatar">👤</div>
@@ -68,94 +81,93 @@
             </div>
             <div class="menu-content">
                 <div class="menu-section">
-                    <div class="section-title">Applications</div>
-                    <div class="menu-item">📁 File Manager</div>
+                    <div class="section-title">Aplicaciones</div>
+                    <div class="menu-item">🧬 NodeCore</div>
+                    <div class="menu-item">💳 Wallet</div>
+                    <div class="menu-item">🖼️ NFT Hub</div>
                     <div class="menu-item">⬛ Terminal</div>
-                    <div class="menu-item">🌐 Web Browser</div>
-                    <div class="menu-item">📝 Text Editor</div>
-                    <div class="menu-item">🎵 Music Player</div>
+                    <div class="menu-item">🧪 Labs</div>
                 </div>
                 <div class="menu-section">
-                    <div class="section-title">System</div>
-                    <div class="menu-item">⚙️ Settings</div>
-                    <div class="menu-item">🔒 Lock Screen</div>
-                    <div class="menu-item">🔄 Restart</div>
-                    <div class="menu-item">⚡ Shutdown</div>
+                    <div class="section-title">Sistema</div>
+                    <div class="menu-item">⚙️ Configuración</div>
+                    <div class="menu-item">🔒 Bloquear</div>
+                    <div class="menu-item">🔄 Reiniciar</div>
+                    <div class="menu-item">⚡ Apagar</div>
                 </div>
             </div>
-        </div>
-    </div>
-    
-    <!-- Update settings window structure -->
-    <div class="settings-window" style="display: none;">
-        <div class="window-header">
-            <div class="window-title">⚙️ Settings</div>
-            <button class="close-button">×</button>
-        </div>
-        <div class="window-content">
-            <div class="window-sidebar">
-                <div class="sidebar-item active" data-section="appearance">
-                    <span class="sidebar-icon">🎨</span>
-                    Appearance
-                </div>
-                <div class="sidebar-item" data-section="sound">
-                    <span class="sidebar-icon">🔊</span>
-                    Sound
-                </div>
-                <div class="sidebar-item" data-section="about">
-                    <span class="sidebar-icon">ℹ️</span>
-                    About
-                </div>
-            </div>
-            <div class="settings-content">
-                <div class="settings-section" id="appearance-section">
-                    <h2>Appearance Settings</h2>
-                    <div class="setting-item">
-                        <label>Theme:</label>
-                        <select id="theme-selector">
-                            <option value="dark">Dark</option>
-                            <option value="light">Light</option>
-                        </select>
+        </nav>
+
+        <!-- Ventana de configuración -->
+        <section class="settings-window" style="display: none;">
+            <header class="window-header">
+                <div class="window-title">⚙️ Configuración</div>
+                <button class="close-button">×</button>
+            </header>
+            <div class="window-content">
+                <aside class="window-sidebar">
+                    <div class="sidebar-item active" data-section="appearance">
+                        <span class="sidebar-icon">🎨</span> Apariencia
                     </div>
-                    <div class="setting-item">
-                        <label>Accent Color:</label>
-                        <div class="color-options">
-                            <div class="color-option" data-color="#007AFF" style="background-color: #007AFF"></div>
-                            <div class="color-option" data-color="#FF3B30" style="background-color: #FF3B30"></div>
-                            <div class="color-option" data-color="#4CD964" style="background-color: #4CD964"></div>
-                            <div class="color-option" data-color="#FFCC00" style="background-color: #FFCC00"></div>
+                    <div class="sidebar-item" data-section="sound">
+                        <span class="sidebar-icon">🔊</span> Sonido
+                    </div>
+                    <div class="sidebar-item" data-section="about">
+                        <span class="sidebar-icon">ℹ️</span> Acerca de
+                    </div>
+                </aside>
+                <div class="settings-content">
+                    <!-- Apariencia -->
+                    <div class="settings-section" id="appearance-section">
+                        <h2>Apariencia</h2>
+                        <div class="setting-item">
+                            <label for="theme-selector">Tema:</label>
+                            <select id="theme-selector">
+                                <option value="dark">Oscuro</option>
+                                <option value="light">Claro</option>
+                            </select>
+                        </div>
+                        <div class="setting-item">
+                            <label>Color Neón:</label>
+                            <div class="color-options">
+                                <div class="color-option" data-color="#0FDABB" style="background-color: #0FDABB"></div>
+                                <div class="color-option" data-color="#00D921" style="background-color: #00D921"></div>
+                                <div class="color-option" data-color="#FFFFFF" style="background-color: #FFFFFF"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Sonido -->
+                    <div class="settings-section" id="sound-section" style="display: none;">
+                        <h2>Sonido</h2>
+                        <div class="setting-item">
+                            <label for="volume-slider">Volumen:</label>
+                            <input type="range" id="volume-slider" min="0" max="100" value="50">
+                            <span id="volume-value">50%</span>
+                        </div>
+                        <div class="setting-item">
+                            <label>Efectos:</label>
+                            <label class="switch">
+                                <input type="checkbox" id="sound-effects-toggle" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <!-- Acerca de -->
+                    <div class="settings-section" id="about-section" style="display: none;">
+                        <h2>Acerca del sistema</h2>
+                        <div class="about-info">
+                            <p><strong>Nombre:</strong> Node OS™</p>
+                            <p><strong>Versión:</strong> 1.0.0</p>
+                            <p><strong>Build:</strong> 2025.06</p>
+                            <p><strong>Memoria:</strong> 16GB RAM</p>
+                            <p><strong>Almacenamiento:</strong> 512GB</p>
                         </div>
                     </div>
                 </div>
-                <div class="settings-section" id="sound-section" style="display: none;">
-                    <h2>Sound Settings</h2>
-                    <div class="setting-item">
-                        <label>System Volume:</label>
-                        <input type="range" id="volume-slider" min="0" max="100" value="50">
-                        <span id="volume-value">50%</span>
-                    </div>
-                    <div class="setting-item">
-                        <label>Sound Effects:</label>
-                        <label class="switch">
-                            <input type="checkbox" id="sound-effects-toggle" checked>
-                            <span class="slider"></span>
-                        </label>
-                    </div>
-                </div>
-                <div class="settings-section" id="about-section" style="display: none;">
-                    <h2>About System</h2>
-                    <div class="about-info">
-                        <p><strong>System Name:</strong> Anything II</p>
-                        <p><strong>Version:</strong> 1.0.0</p>
-                        <p><strong>Build:</strong> 2024.01</p>
-                        <p><strong>Memory:</strong> 16GB RAM</p>
-                        <p><strong>Storage:</strong> 512GB</p>
-                    </div>
-                </div>
             </div>
-        </div>
+        </section>
     </div>
-    
+
     <script src="script.js"></script>
 </body>
 </html>
